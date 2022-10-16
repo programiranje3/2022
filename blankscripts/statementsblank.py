@@ -2,6 +2,7 @@
 """
 
 
+#%%
 def demonstrate_branching():
     """Details and peculiarities of if statements.
     - is compares id()'s, == compares contents
@@ -9,6 +10,13 @@ def demonstrate_branching():
     - the condition of an if-statement need not necessarily be a boolean
     - there can be more than one elif after if (no switch statement, use multiple elif instead)
     """
+
+
+#%%
+# Test demonstrate_branching()
+demonstrate_branching()
+
+#%%
 
 
 def demonstrate_loops():
@@ -21,7 +29,6 @@ def demonstrate_loops():
     """
 
 
-if __name__ == '__main__':
-
-    demonstrate_branching()
-    demonstrate_loops()
+#%%
+# Test demonstrate_loops()
+demonstrate_loops()

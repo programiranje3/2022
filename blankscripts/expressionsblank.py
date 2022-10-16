@@ -4,11 +4,19 @@
 from settings import *
 
 
+#%%
 def demonstrate_arithmetic_operators():
     """Working with arithmetic operators.
     Arithmetic operators in Python are pretty much the same as in other programming languages.
     The integer division operator: //
     """
+
+
+#%%
+# Test demonstrate_arithmetic_operators()
+demonstrate_arithmetic_operators()
+
+#%%
 
 
 def demonstrate_relational_operators():
@@ -18,6 +26,13 @@ def demonstrate_relational_operators():
     - comparing dates (>, <, etc. with dates)
     - None in comparisons, type(None)
     """
+
+
+#%%
+# Test demonstrate_relational_operators()
+demonstrate_relational_operators()
+
+#%%
 
 
 def demonstrate_logical_operators():
@@ -31,9 +46,7 @@ def demonstrate_logical_operators():
     """
 
 
-if __name__ == '__main__':
-
-    demonstrate_arithmetic_operators()
-    demonstrate_relational_operators()
-    demonstrate_logical_operators()
+#%%
+# Test demonstrate_logical_operators()
+demonstrate_logical_operators()
 
