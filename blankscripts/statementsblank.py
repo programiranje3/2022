@@ -11,6 +11,8 @@ def demonstrate_branching():
     - there can be more than one elif after if (no switch statement, use multiple elif instead)
     """
 
+    return
+
 
 #%%
 # Test demonstrate_branching()
@@ -27,6 +29,8 @@ def demonstrate_loops():
     - break and continue
     - while loop
     """
+
+    return
 
 
 #%%

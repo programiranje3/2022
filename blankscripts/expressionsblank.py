@@ -11,6 +11,8 @@ def demonstrate_arithmetic_operators():
     The integer division operator: //
     """
 
+    return
+
 
 #%%
 # Test demonstrate_arithmetic_operators()
@@ -26,6 +28,8 @@ def demonstrate_relational_operators():
     - comparing dates (>, <, etc. with dates)
     - None in comparisons, type(None)
     """
+
+    return
 
 
 #%%
@@ -44,6 +48,8 @@ def demonstrate_logical_operators():
     - logical operations with None (incl. None and int, None and date, etc.)
     - None and date vs. None > date
     """
+
+    return
 
 
 #%%

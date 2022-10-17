@@ -12,12 +12,16 @@ def demonstrate_lists():
     - looping through a list
     """
 
+    return
+
 
 #%%
 # Test demonstrate_lists()
 demonstrate_lists()
 
 #%%
+
+
 def demonstrate_list_methods():
     """Using
     append()
@@ -34,6 +38,8 @@ def demonstrate_list_methods():
     for the occurrence of a given element.
     """
 
+    return
+
 
 #%%
 # Test demonstrate_list_methods()
@@ -47,6 +53,8 @@ def demonstrate_arrays():
     Demonstrating that lists and arrays are different types.
     """
 
+    return
+
 
 #%%
 # Test demonstrate_arrays()
@@ -59,6 +67,8 @@ def populate_empty_list():
     """Creating an empty list and populating it with random values
     using random.seed() and random.randint()
     """
+
+    return
 
 
 #%%
@@ -76,6 +86,8 @@ def duplicate_list():
     - l2 = l1[:]
     """
 
+    return
+
 
 #%%
 # Test duplicate_list()
@@ -92,6 +104,8 @@ def demonstrate_list_comprehension():
     """
 
     # songs = ['Hey Jude', 'Eleanor Rigby', 'Let It Be', 'Penny Lane']
+
+    return
 
 
 #%%

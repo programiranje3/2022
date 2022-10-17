@@ -18,6 +18,8 @@ def demonstrate_formatting():
     - str() vs. repr() (usually the same, but with whitespace there is a difference)
     """
 
+    return
+
 
 #%%
 # Test demonstrate_formatting()
@@ -30,6 +32,8 @@ def demonstrate_fancy_formatting():
     """Using "fancy" formatting.
     - format strings like '{0}{1} {2}', '{0}{1} {2}, {3}', etc.
     """
+
+    return
 
 
 #%%
@@ -44,6 +48,8 @@ def demonstrate_fancy_formatting_with_f_strings():
     - format strings like f'Some text {some var}, more text {another var}...', etc.
     """
 
+    return
+
 
 #%%
 # Test demonstrate_fancy_formatting_with_f_strings()
@@ -56,6 +62,8 @@ def demonstrate_string_operations():
     """Using different string operations.
     - endswith(), split(), center(), in (aka contains()), == (aka equals()), len(), ..., strip() (lstrip(), rstrip())
     """
+
+    return
 
 
 #%%
