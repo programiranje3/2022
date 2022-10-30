@@ -219,6 +219,12 @@ class Singer(Musician):
             <singer>.play(song_title, *['Thank you!', 'You're wonderful!], love='We love you!')
         """
 
+    def what_do_you_do(self):
+        """Just a simple method to describe the concept of singer.
+        """
+
+        pass
+
 
 #%%
 class Songwriter(Musician):
@@ -301,6 +307,15 @@ class SingerSongwriter(Singer, Songwriter):
         #     return self.__dict__ == other.__dict__
         # return False
 
+    def tell(self):
+        """What if multiple inheritance requires calling a method with same method name
+        from different paths (i.e., from different base classes)?
+        E.g., class C(A, B) and both A and B implement a method with the same name m() in their own ways).
+        In that case, call A's version like A.m(self), and B's version like B.m(self).
+        """
+        # print(Singer.what_do_you_do(self))
+        # print(Songwriter.what_do_you_do(self))
+
 
 #%%
 # Demonstrate multiple inheritance and MRO.
@@ -311,6 +326,17 @@ class SingerSongwriter(Singer, Songwriter):
 # Demonstrate inheritance
 # Version 2 - with multiple inheritance
 
+# print(SingerSongwriter.__mro__)
+# print()
+# bob = SingerSongwriter(name='Bob Dylan', vocals=Vocals.LEAD_VOCALS,
+#                        instrument=Instrument.RHYTHM_GUITAR, is_band_member=False)
+# print(bob)
+# # print()
+# # print(bob == SingerSongwriter(name='Bob Dylan', vocals=Vocals.LEAD_VOCALS,
+# #                               instrument=Instrument.RHYTHM_GUITAR, is_band_member=False))
+# print()
+#
+# bob.tell()
 
 #%%
 # Demonstrate JSON encoding/decoding of simple data types.
@@ -341,5 +367,4 @@ from json_tricks import loads, dumps
 #%%
 # List of objects
 from json_tricks import loads, dumps
-
 

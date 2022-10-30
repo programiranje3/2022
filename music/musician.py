@@ -175,6 +175,7 @@ print(paul.year)
 
 #%%
 # Demonstrate @classmethod (from_str())
+# paul = Musician('Paul McCartney')
 
 
 #%%
@@ -240,6 +241,12 @@ class Singer(Musician):
 
         pass
 
+    def what_do_you_do(self):
+        """Just a simple method to describe the concept of singer.
+        """
+
+        pass
+
 
 #%%
 class Songwriter(Musician):
@@ -292,10 +299,10 @@ class Songwriter(Musician):
 # print(Singer.__mro__)
 # print(paul == Singer('Paul McCartney', Vocals.LEAD_VOCALS))
 # print()
-# john = Songwriter('John Lennon', Instrument.RHYTHM_GUITAR)
-# print(john)
-# print(john == Songwriter('John Lennon', Instrument.RHYTHM_GUITAR))
-# print(john.what_do_you_do())
+# paul = Songwriter('Paul McCartney', Instrument.BASS)
+# print(paul)
+# print(paul == Songwriter('Paul McCartney', Instrument.BASS))
+# print(paul.what_do_you_do())
 
 #%%
 # Demonstrate method overriding
@@ -328,6 +335,15 @@ class SingerSongwriter(Singer, Songwriter):
 
         pass
 
+    def tell(self):
+        """What if multiple inheritance requires calling a method with same method name
+        from different paths (i.e., from different base classes)?
+        E.g., class C(A, B) and both A and B implement a method with the same name m() in their own ways).
+        In that case, call A's version like A.m(self), and B's version like B.m(self).
+        """
+        print(Singer.what_do_you_do(self))
+        print(Songwriter.what_do_you_do(self))
+
 
 #%%
 # Demonstrate multiple inheritance and MRO.
@@ -340,7 +356,8 @@ class SingerSongwriter(Singer, Songwriter):
 # print(bob == SingerSongwriter(name='Bob Dylan', vocals=Vocals.LEAD_VOCALS,
 #                               instrument=Instrument.RHYTHM_GUITAR, is_band_member=False))
 # print()
-
+#
+# bob.tell()
 
 #%%
 # Demonstrate inheritance
@@ -349,9 +366,10 @@ class SingerSongwriter(Singer, Songwriter):
 # print(paul)
 # print(paul == Singer(name='Paul McCartney', vocals=Vocals.LEAD_VOCALS, is_band_member=True))
 # print()
-# john = Songwriter(name='John Lennon', instrument=Instrument.RHYTHM_GUITAR, is_band_member=True)
-# print(john)
-# print(john == Songwriter(name='John Lennon', instrument=Instrument.RHYTHM_GUITAR, is_band_member=True))
+# paul = Songwriter('Paul McCartney', Instrument.BASS)
+# print(paul)
+# print(paul == Songwriter('Paul McCartney', Instrument.BASS))
+# print(paul.what_do_you_do())
 
 
 #%%

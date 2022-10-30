@@ -45,6 +45,8 @@ class Band():
         # Musician objects are unhashable, so comparing the members tuples from self and other directly does not work;
         # see https://stackoverflow.com/a/14721133/1899061, https://stackoverflow.com/a/17236824/1899061
         # return self == other if isinstance(other, Band) else False    # No! Musician objects are unhashable!
+        # However, this works:
+        # return self.__dict__ == other.__dict__ if isinstance(other, Band) else False
 
         # # members must be compared 'both ways', because the two tuples can be of different length
         # m_diff_1 = [x for x in self.members if x not in other.members]
@@ -202,7 +204,5 @@ class BandNameError(BandError):
 
 #%%
 # Demonstrate reading from a binary file - pickle.load(<infile>)
-
-
 
 
