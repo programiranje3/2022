@@ -31,11 +31,11 @@ class Band():
     # Insert a class variable (static field), such as genres, date_pattern,...
 
     def __init__(self, name, *members, start=date.today(), end=date.today()):
-        pass                                            # introduce and initialize iterator counter, self.__i
+        pass
+
+        # self.__i = 0                              # introduce and initialize iterator counter, self.__i
 
         # Code to check if the band name is specified correctly (possibly rises BandNameError)
-
-        # self.__i = 0
 
     def __str__(self):
         pass
