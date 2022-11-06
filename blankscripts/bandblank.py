@@ -33,7 +33,7 @@ class Band():
     def __init__(self, name, *members, start=date.today(), end=date.today()):
         pass
 
-        # self.__i = 0                              # introduce and initialize iterator counter, self.__i
+        # self.__i = 0                                  # introduce and initialize iterator counter, self.__i
 
         # Code to check if the band name is specified correctly (possibly rises BandNameError)
 
@@ -178,6 +178,8 @@ class BandNameError(BandError):
 
 #%%
 # Catching exceptions - try-except block
+# If an exception is caught as e, then e.args[0] is the type of exception (relevant for exception handling).
+# To write error messages to the exception console, use sys.stderr.write(f'...').
 
 #%%
 # Catching multiple exceptions and the 'finally' clause
@@ -186,6 +188,7 @@ class BandNameError(BandError):
 # Using the 'else' clause (must be after all 'except' clauses)
 
 #%%
+# Catching 'any' exception - empty 'except' clause
 
 #%%
 # Catching user-defined exceptions

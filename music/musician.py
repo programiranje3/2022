@@ -395,6 +395,18 @@ print()
 #%%
 # Demonstrate JSON encoding/decoding of simple data types.
 # Refer to https://docs.python.org/3.3/library/json.html#encoders-and-decoders for details.
+
+# from pprint import pprint
+# s = json.dumps(['Paul', 1942, True, {'City': 'Liverpool'}])
+# pprint(s, width=4)
+# paul = Musician('Paul McCartney')
+# print(paul)
+# paul_json = json.dumps(paul.__dict__, indent=4)
+# print(paul_json)
+# print(paul == json.loads(paul_json))      # No! There is no info about the class in paul_json, so a dict is returned!
+# print(json.loads(paul_json))
+# print()
+
 # d = json.dumps({'one': [1, True, 'Uno'], 'two': (2, 3, 4)}, indent=4)
 # print(d)
 # l = json.loads(d)
