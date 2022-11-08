@@ -4,7 +4,7 @@
 
 #%%
 # Setup / Data
-# from util import utility
+from util import utility
 from music.enums import Vocals, Instrument
 import json
 
@@ -343,10 +343,10 @@ class SingerSongwriter(Singer, Songwriter):
     """
 
     def __init__(self, **kwargs):
-        pass
+        super().__init__(**kwargs)
 
     def __str__(self):
-        pass
+        return super().__str__()
 
     def __eq__(self, other):
         # Recommended if inheritance is involved
@@ -355,7 +355,7 @@ class SingerSongwriter(Singer, Songwriter):
         #     return self.__dict__ == other.__dict__
         # return False
 
-        pass
+        return self.__dict__ == other.__dict__ if type(self) is type(other) else False
 
     def tell(self):
         """What if multiple inheritance requires calling a method with same method name
@@ -363,22 +363,23 @@ class SingerSongwriter(Singer, Songwriter):
         E.g., class C(A, B) and both A and B implement a method with the same name m() in their own ways).
         In that case, call A's version like A.m(self), and B's version like B.m(self).
         """
-        pass
+        print(Singer.what_do_you_do(self))
+        print(Songwriter.what_do_you_do(self))
 
 
 #%%
 # Demonstrate multiple inheritance and MRO.
 # Make sure to read this first: https://stackoverflow.com/a/50465583/1899061 (especially Scenario 3).
-# print(SingerSongwriter.__mro__)
-# bob = SingerSongwriter(name='Bob Dylan', vocals=Vocals.LEAD_VOCALS,
-#                        instrument=Instrument.RHYTHM_GUITAR, is_band_member=False)
-# print(bob)
-# print()
-# print(bob == SingerSongwriter(name='Bob Dylan', vocals=Vocals.LEAD_VOCALS,
-#                               instrument=Instrument.RHYTHM_GUITAR, is_band_member=False))
-# print()
-#
-# bob.tell()
+print(SingerSongwriter.__mro__)
+bob = SingerSongwriter(name='Bob Dylan', vocals=Vocals.LEAD_VOCALS,
+                       instrument=Instrument.RHYTHM_GUITAR, is_band_member=False)
+print(bob)
+print()
+print(bob == SingerSongwriter(name='Bob Dylan', vocals=Vocals.LEAD_VOCALS,
+                              instrument=Instrument.RHYTHM_GUITAR, is_band_member=False))
+print()
+
+bob.tell()
 
 #%%
 # Demonstrate inheritance
@@ -407,10 +408,10 @@ print()
 # print(json.loads(paul_json))
 # print()
 
-# d = json.dumps({'one': [1, True, 'Uno'], 'two': (2, 3, 4)}, indent=4)
-# print(d)
-# l = json.loads(d)
-# print(l)
+d = json.dumps({'one': [1, True, 'Uno'], 'two': (2, 3, 4)}, indent=4)
+print(d)
+l = json.loads(d)
+print(l)
 
 #%%
 # Demonstrate JSON encoding/decoding of Musician objects
@@ -433,10 +434,14 @@ print()
 #%%
 # Single object
 from json_tricks import loads, dumps
-
+paul_json = dumps(paul, indent=4)
+print(paul_json)
+print(paul == loads(paul_json))
 
 #%%
 # List of objects
-
+john_and_paul_json = dumps([john, paul], indent=4)
+print(john_and_paul_json)
+print([john, paul] == loads(john_and_paul_json))
 
 
