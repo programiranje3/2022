@@ -18,7 +18,7 @@ from testdata.musicians import *
 
 
 #%%
-class Band():
+class Band:
     """The class describing the concept of a music group/band.
     It includes a list of Musician objects (band members)
     and the dates when the band started/stopped performing together.

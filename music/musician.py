@@ -408,11 +408,6 @@ print()
 # print(json.loads(paul_json))
 # print()
 
-d = json.dumps({'one': [1, True, 'Uno'], 'two': (2, 3, 4)}, indent=4)
-print(d)
-l = json.loads(d)
-print(l)
-
 #%%
 # Demonstrate JSON encoding/decoding of Musician objects
 
@@ -433,15 +428,8 @@ print(l)
 
 #%%
 # Single object
-from json_tricks import loads, dumps
-paul_json = dumps(paul, indent=4)
-print(paul_json)
-print(paul == loads(paul_json))
 
 #%%
 # List of objects
-john_and_paul_json = dumps([john, paul], indent=4)
-print(john_and_paul_json)
-print([john, paul] == loads(john_and_paul_json))
 
 
