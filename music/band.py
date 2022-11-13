@@ -33,9 +33,6 @@ class Band:
         # pass                                            # introduce and initialize iterator counter, self.__i
 
         # Code to check if the band name is specified correctly (possibly raises BandNameError)
-        check_name = not isinstance(name, str) or len(name) == 0
-        if check_name:
-            raise BandNameError(name)
 
         self.name = name
         self.members = members
@@ -260,10 +257,6 @@ class BandError(Exception):
 class BandNameError(BandError):
     """Exception raised when the name of a band is specified incorrectly.
     """
-
-    def __init__(self, name):
-        self.name = name
-        self.message = f'BandNameError: \'{self.name}\' is not a valid band name'
 
 
 #%%
