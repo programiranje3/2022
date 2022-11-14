@@ -226,23 +226,8 @@ def band_json_to_py(band_json):
 # so you might have to provide cls_lookup_map when decoding.
 
 # Single object
-from json_tricks import loads, dumps
-
-theBeatles_json = dumps(theBeatles, indent=4)
-print(theBeatles_json)
-print(theBeatles == loads(theBeatles_json))
-print()
 
 # List of objects
-theBeatles = Band('The Beatles', *[johnLennon, paulMcCartney, georgeHarrison, ringoStarr],
-                  start=date(1957, 7, 6), end=date(1970, 4, 10))
-theRollingStones = Band('The Rolling Stones', *[mickJagger, keithRichards, ronWood, charlieWatts],
-                        start=date(1962, 7, 12))
-pinkFloyd = Band('Pink Floyd', *[sydBarrett, davidGilmour, rogerWaters, nickMason, rickWright])
-
-bands_json = dumps([theBeatles, theRollingStones, pinkFloyd], indent=4)
-print(bands_json)
-print([theBeatles, theRollingStones, pinkFloyd] == loads(bands_json))
 
 
 #%%
@@ -313,6 +298,12 @@ except:
 
 #%%
 # Demonstrate working with files
+# theBeatles = Band('The Beatles', *[johnLennon, paulMcCartney, georgeHarrison, ringoStarr],
+#                   start=date(1957, 7, 6), end=date(1970, 4, 10))
+# theRollingStones = Band('The Rolling Stones', *[mickJagger, keithRichards, ronWood, charlieWatts],
+#                         start=date(1962, 7, 12))
+# pinkFloyd = Band('Pink Floyd', *[sydBarrett, davidGilmour, rogerWaters, nickMason, rickWright])
+# bands = [theBeatles, theRollingStones, pinkFloyd]
 
 #%%
 # Writing to a text file - <outfile>.write(str(<obj>), <outfile>.writelines([str(<obj>)+'\n' for <obj> in <objs>])

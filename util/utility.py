@@ -57,6 +57,13 @@ def date_json_to_py(iso_date):
 # - absolute path: <path>.absolute()
 # - parent dir: <path>.parent
 
+#%%
+# Demonstrate creating and removing directories
+# - new dir: <newDir> = <path> / '<subdir1>/<subdir2>/.../<subdirN>'
+#            <newDir>.mkdir(parents=True, exist_ok=True)
+# - remove dir: <dir>.rmdir()                                           # requires the <dir> to be empty
+# - project dir: settings.PROJECT_DIR
+
 
 #%%
 def get_project_dir():
@@ -65,12 +72,6 @@ def get_project_dir():
 
 
 #%%
-# Demonstrate pathlib.Path
-# - new dir: <newDir> = <path> / '<subdir1>/<subdir2>/.../<subdirN>'
-#            <newDir>.mkdir(parents=True, exist_ok=True)
-# - remove dir: <dir>.rmdir()                                           # requires the <dir> to be empty
-# - project dir: settings.PROJECT_DIR
-
 # Demonstrate get_project_dir()
 
 
@@ -80,8 +81,6 @@ def get_data_dir():
     (by convention located right under the project root directory).
     """
 
-
 #%%
 # Demonstrate get_data_dir()
-
 

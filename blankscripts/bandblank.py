@@ -155,6 +155,14 @@ from json_tricks import loads, dumps
 
 # List of objects
 
+# theBeatles = Band('The Beatles', *[johnLennon, paulMcCartney, georgeHarrison, ringoStarr],
+#                   start=date(1957, 7, 6), end=date(1970, 4, 10))
+# theRollingStones = Band('The Rolling Stones', *[mickJagger, keithRichards, ronWood, charlieWatts],
+#                         start=date(1962, 7, 12))
+# pinkFloyd = Band('Pink Floyd', *[sydBarrett, davidGilmour, rogerWaters, nickMason, rickWright])
+
+# bands = [theBeatles, theRollingStones, pinkFloyd]
+
 
 #%%
 class BandError(Exception):
@@ -200,7 +208,7 @@ class BandNameError(BandError):
 # Writing to a text file - <outfile>.write(str(<obj>), <outfile>.writelines([str(<obj>)+'\n' for <obj> in <objs>])
 
 #%%
-# Demonstrate reading from a text file - <infile>.read(), <infile>.readline()
+# Demonstrate reading from a text file - <infile>.readline(), <infile>.readlines()
 
 #%%
 # Demonstrate writing to a binary file - pickle.dump(<obj>, <outfile>)
