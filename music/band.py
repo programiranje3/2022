@@ -18,7 +18,7 @@ from testdata.musicians import *
 
 
 #%%
-class Band:
+class Band():
     """The class describing the concept of a music group/band.
     It includes a list of Musician objects (band members)
     and the dates when the band started/stopped performing together.
@@ -33,6 +33,9 @@ class Band:
         # pass                                            # introduce and initialize iterator counter, self.__i
 
         # Code to check if the band name is specified correctly (possibly raises BandNameError)
+        check_name = not isinstance(name, str) or not len(name)
+        if check_name:
+            raise BandNameError(name)
 
         self.name = name
         self.members = members
@@ -226,8 +229,23 @@ def band_json_to_py(band_json):
 # so you might have to provide cls_lookup_map when decoding.
 
 # Single object
+from json_tricks import loads, dumps
+
+theBeatles_json = dumps(theBeatles, indent=4)
+print(theBeatles_json)
+print(theBeatles == loads(theBeatles_json))
+print()
 
 # List of objects
+theBeatles = Band('The Beatles', *[johnLennon, paulMcCartney, georgeHarrison, ringoStarr],
+                  start=date(1957, 7, 6), end=date(1970, 4, 10))
+theRollingStones = Band('The Rolling Stones', *[mickJagger, keithRichards, ronWood, charlieWatts],
+                        start=date(1962, 7, 12))
+pinkFloyd = Band('Pink Floyd', *[sydBarrett, davidGilmour, rogerWaters, nickMason, rickWright])
+
+bands_json = dumps([theBeatles, theRollingStones, pinkFloyd], indent=4)
+print(bands_json)
+print([theBeatles, theRollingStones, pinkFloyd] == loads(bands_json))
 
 
 #%%
@@ -242,6 +260,11 @@ class BandError(Exception):
 class BandNameError(BandError):
     """Exception raised when the name of a band is specified incorrectly.
     """
+
+    def __init__(self, name):
+        Exception.__init__(self, f'BandNameError: \'{name}\' is not a valid band name')
+        self.name = name
+        # self.message = f'BandNameError: \'{self.name}\' is not a valid band name'
 
 
 #%%
@@ -295,26 +318,63 @@ except:
 
 #%%
 # Catching user-defined exceptions
+try:
+    band = Band('')
+except Exception as err:
+    print()
+    #     sys.stderr.write(f'\n{type(err).__name__}: {err.args[0]}\n\n')
+    # sys.stderr.write(f'\n{type(err).__name__}:\n{err.message}\n\n')
+    # sys.stderr.write(f'\n{err.message}\n\n')
+    sys.stderr.write(f'\n{err.args[0]}\n\n')
 
 #%%
 # Demonstrate working with files
-# theBeatles = Band('The Beatles', *[johnLennon, paulMcCartney, georgeHarrison, ringoStarr],
-#                   start=date(1957, 7, 6), end=date(1970, 4, 10))
-# theRollingStones = Band('The Rolling Stones', *[mickJagger, keithRichards, ronWood, charlieWatts],
-#                         start=date(1962, 7, 12))
-# pinkFloyd = Band('Pink Floyd', *[sydBarrett, davidGilmour, rogerWaters, nickMason, rickWright])
-# bands = [theBeatles, theRollingStones, pinkFloyd]
+theBeatles = Band('The Beatles', *[johnLennon, paulMcCartney, georgeHarrison, ringoStarr],
+                  start=date(1957, 7, 6), end=date(1970, 4, 10))
+theRollingStones = Band('The Rolling Stones', *[mickJagger, keithRichards, ronWood, charlieWatts],
+                        start=date(1962, 7, 12))
+pinkFloyd = Band('Pink Floyd', *[sydBarrett, davidGilmour, rogerWaters, nickMason, rickWright])
 
 #%%
 # Writing to a text file - <outfile>.write(str(<obj>), <outfile>.writelines([str(<obj>)+'\n' for <obj> in <objs>])
+bands = [theBeatles, theRollingStones, pinkFloyd]
+file = get_data_dir() / 'bands.txt'
+with open(file, 'w') as f:
+    # for b in bands:
+    #     f.write(str(b) + '\n')
+    f.writelines([str(b) + '\n' for b in bands])
+print('Done')
 
 #%%
-# Demonstrate reading from a text file - <infile>.read(), <infile>.readline()
+# Demonstrate reading from a text file - <infile>.readline(), <infile>.readlines()
+file = get_data_dir() / 'bands.txt'
+with open(file, 'r') as f:
+    # lines = f.read().rstrip()             # rstrip() removes an extra '\n' in the end
+    lines = ''
+    while True:
+        line = f.readline()
+        if line:
+            lines += line
+        else:
+            break
+print(lines.rstrip())                       # rstrip() removes an extra '\n' in the end
+print('Done')
 
 #%%
 # Demonstrate writing to a binary file - pickle.dump(<obj>, <outfile>)
+bands = [theBeatles, theRollingStones, pinkFloyd]
+file = get_data_dir() / 'bands.binary'
+with open(file, 'wb') as f:
+    pickle.dump(bands, f)
+print('Done')
 
 #%%
 # Demonstrate reading from a binary file - pickle.load(<infile>)
+file = get_data_dir() / 'bands.binary'
+with open(file, 'rb') as f:
+    bands1 = pickle.load(f)
+print('Done')
+for band in bands1:
+    print(band)
 
 

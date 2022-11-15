@@ -56,13 +56,9 @@ def date_json_to_py(iso_date):
 # - current dir: Path.cwd(), Path('.'), Path()
 # - absolute path: <path>.absolute()
 # - parent dir: <path>.parent
-
-#%%
-# Demonstrate creating and removing directories
-# - new dir: <newDir> = <path> / '<subdir1>/<subdir2>/.../<subdirN>'
-#            <newDir>.mkdir(parents=True, exist_ok=True)
-# - remove dir: <dir>.rmdir()                                           # requires the <dir> to be empty
-# - project dir: settings.PROJECT_DIR
+print(Path.home())
+print(Path.cwd())
+print(Path('.'))
 
 
 #%%
@@ -70,9 +66,25 @@ def get_project_dir():
     """Returns the Path object corresponding to the project root directory.
     """
 
+    return PROJECT_DIR
+
 
 #%%
+# Demonstrate pathlib.Path
+# - new dir: <newDir> = <path> / '<subdir1>/<subdir2>/.../<subdirN>'
+#            <newDir>.mkdir(parents=True, exist_ok=True)
+# - remove dir: <dir>.rmdir()                                           # requires the <dir> to be empty
+# - project dir: settings.PROJECT_DIR
+
 # Demonstrate get_project_dir()
+print(get_project_dir())
+new_dir = get_project_dir() / 'd1/d2'
+new_dir.mkdir(parents=True, exist_ok=True)
+# d1 = get_project_dir() / 'd1'
+new_dir.rmdir()                                 # removes d2 only (provided that it's empty)
+new_dir = new_dir.parent                        # get up to d1
+# print(new_dir)
+new_dir.rmdir()                                 # now d1 is removed as well
 
 
 #%%
@@ -81,6 +93,12 @@ def get_data_dir():
     (by convention located right under the project root directory).
     """
 
+    data_dir = PROJECT_DIR / 'data'
+    data_dir.mkdir(parents=True, exist_ok=True)
+    return data_dir
+
+
 #%%
 # Demonstrate get_data_dir()
-
+print(get_data_dir())
+print(type(get_data_dir()))
